@@ -1027,7 +1027,7 @@ module.exports = ({ types: t }) => {
         const refs = [...binding.referencePaths, ...binding.constantViolations];
         for (const ref of refs) {
           if (!ref.isIdentifier()) return false;
-          const fnParent = ref.getFunctionParent();
+          const fnParent = ref.getFunctionParent() || ref.getProgramParent();
 
           // TODO
           // Usage of scopes and bindings in simplify plugin results in

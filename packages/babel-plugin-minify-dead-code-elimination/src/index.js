@@ -715,9 +715,7 @@ module.exports = ({ types: t, traverse }) => {
         return;
       }
 
-      if (
-        binding.scope.getFunctionParent() !== path.scope.getFunctionParent()
-      ) {
+      if (getParent(binding) !== getParent(path)) {
         return;
       }
 
@@ -1063,8 +1061,12 @@ module.exports = ({ types: t, traverse }) => {
     return !!path2.findParent(parent => parent === path1);
   }
 
+  function getParent(target) {
+    return target.scope.getFunctionParent() || target.scope.getProgramParent();
+  }
+
   function isSameFunctionScope(path1, path2) {
-    return path1.scope.getFunctionParent() === path2.scope.getFunctionParent();
+    return getParent(path1) === getParent(path2);
   }
 
   function isBreaking(stmt, path) {

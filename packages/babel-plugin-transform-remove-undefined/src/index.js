@@ -62,7 +62,8 @@ function hasViolation(declarator, scope, start) {
     return true;
   }
 
-  const scopeParent = declarator.getFunctionParent();
+  const scopeParent =
+    declarator.getFunctionParent() || declarator.getProgramParent();
 
   const violation = binding.constantViolations.some(v => {
     // https://github.com/babel/minify/issues/630
