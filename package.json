@@ -30,7 +30,7 @@
     "chalk": "^2.0.1",
     "cli-table": "^0.3.1",
     "closure-compiler": "^0.2.12",
-    "codecov": "^2.3.0",
+    "codecov": "^3.7.1",
     "commander": "^2.11.0",
     "eslint": "^4.4.0",
     "eslint-plugin-prettier": "^2.3.1",
